@@ -1,9 +1,9 @@
 ---
-name: plane-work-item
-description: Create Plane work items through the official API. Use when a user asks to create a Plane task, bug, issue, or work item, especially when the request should be executed directly with minimal back-and-forth. Prefer explicit user-provided workspace, project, and state; otherwise resolve them from environment variables or unambiguous API results.
+name: plane-so-skills
+description: Create Plane work items through the official Plane API. Use when a user asks to create a Plane task, bug, issue, or work item, especially when the request should be executed directly with minimal back-and-forth. Prefer explicit user-provided workspace, project, and state; otherwise resolve them from environment variables or unambiguous API results.
 ---
 
-# Plane Work Item
+# Plane.so Skills
 
 ## Default Behavior
 
@@ -46,7 +46,7 @@ description: Create Plane work items through the official API. Use when a user a
 
 ## Execution Notes
 
-- Use the official work-items endpoint, not the deprecated issues endpoint.
+- Use the official Plane `work-items` endpoint, not the deprecated `issues` endpoint.
 - Resolve the state name from `/projects/{project_id}/states/` before creating the work item.
 - Keep the interaction short. If the target is already resolvable, create the item instead of asking for confirmation.
 - If the target workspace has exactly one project and no project default is configured, use the only available project and report that assumption.

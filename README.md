@@ -1,28 +1,24 @@
 # plane-so-skills
 
-This repository currently contains one Codex skill:
-
-- `plane-work-item`
-
-The skill creates Plane work items through the official Plane API from natural-language task details.
+`plane-so-skills` is a Codex skill for creating Plane work items from natural-language task details.
 
 ## Install
 
-The skill folder name must stay `plane-work-item`.
+The installed local skill folder should be named `plane-so-skills`.
 
 ### macOS / Linux
 
 ```bash
-git clone https://github.com/yejiabao917/plane-so-skills.git ~/.codex/skills/plane-work-item
+git clone https://github.com/yejiabao917/plane-so-skills.git ~/.codex/skills/plane-so-skills
 ```
 
 ### Windows PowerShell
 
 ```powershell
-git clone https://github.com/yejiabao917/plane-so-skills.git "$env:USERPROFILE\.codex\skills\plane-work-item"
+git clone https://github.com/yejiabao917/plane-so-skills.git "$env:USERPROFILE\.codex\skills\plane-so-skills"
 ```
 
-If you download a ZIP instead of cloning, extract it and rename the extracted folder to `plane-work-item` before placing it under `$CODEX_HOME/skills/`.
+If you download a ZIP instead of cloning, extract it and rename the extracted folder to `plane-so-skills` before placing it under `$CODEX_HOME/skills/`.
 
 ## Required Environment Variables
 
@@ -80,4 +76,4 @@ $env:PLANE_DEFAULT_STATE="Backlog"
 
 - The script uses the official Plane `work-items` API.
 - The repository is cross-platform and relies only on standard environment variables.
-- The repository name may differ from the installed local skill folder name. The installed folder should still be `plane-work-item`.
+- The repository name, skill name, and recommended installed folder name are all `plane-so-skills`.
