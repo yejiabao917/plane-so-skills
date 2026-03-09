@@ -1,4 +1,4 @@
 interface:
   display_name: "Plane.so Skills"
-  short_description: "Create Plane work items from natural-language task details."
-  default_prompt: "Use $plane-so-skills to create a Plane work item directly from the user's task details."
+  short_description: "Operate Plane work items, labels, members, and comments through the official API."
+  default_prompt: "Use $plane-so-skills to operate Plane work items directly from the user's task details."

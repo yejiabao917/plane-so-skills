@@ -1,6 +1,6 @@
 # plane-so-skills
 
-`plane-so-skills` is a Codex skill for creating Plane work items from natural-language task details.
+`plane-so-skills` is a Codex skill for operating Plane work items through the official Plane API.
 
 ## Install
 
@@ -18,8 +18,6 @@ git clone https://github.com/yejiabao917/plane-so-skills.git ~/.codex/skills/pla
 git clone https://github.com/yejiabao917/plane-so-skills.git "$env:USERPROFILE\.codex\skills\plane-so-skills"
 ```
 
-If you download a ZIP instead of cloning, extract it and rename the extracted folder to `plane-so-skills` before placing it under `$CODEX_HOME/skills/`.
-
 ## Required Environment Variables
 
 Required:
@@ -33,47 +31,87 @@ Optional:
 - `PLANE_DEFAULT_PROJECT_NAME`
 - `PLANE_DEFAULT_STATE`
 
-### macOS / Linux example
+## Supported Operations
+
+- Create a work item
+- List work items
+- Get one work item
+- Update a work item
+- Delete a work item
+- List project members
+- List labels
+- Create a label
+- Delete a label
+- List comments
+- Add a comment
+- Update a comment
+- Delete a comment
+
+## Command Examples
+
+Create a work item:
 
 ```bash
-export PLANE_API_KEY="your_api_key"
-export PLANE_BASE_URL="https://api.plane.so"
-export PLANE_WORKSPACE_SLUG="your_workspace_slug"
-export PLANE_DEFAULT_PROJECT_NAME="your_project_name"
-export PLANE_DEFAULT_STATE="Backlog"
+python scripts/plane_so_skills.py create \
+  --title "Fix login white screen" \
+  --description "Reproducible on iOS Safari." \
+  --priority high \
+  --state Backlog
 ```
 
-### Windows PowerShell example
+List backlog items:
 
-```powershell
-$env:PLANE_API_KEY="your_api_key"
-$env:PLANE_BASE_URL="https://api.plane.so"
-$env:PLANE_WORKSPACE_SLUG="your_workspace_slug"
-$env:PLANE_DEFAULT_PROJECT_NAME="your_project_name"
-$env:PLANE_DEFAULT_STATE="Backlog"
+```bash
+python scripts/plane_so_skills.py list --state Backlog --limit 10
 ```
 
-## What The Skill Does
+Get one item by sequence id:
 
-- Creates Plane work items from plain-language requests
-- Resolves project and state names through the Plane API
-- Uses explicit user input first, then environment defaults
-- Keeps follow-up questions to a minimum
+```bash
+python scripts/plane_so_skills.py get --item 591
+```
 
-## Example Requests
+Update state and labels:
 
-- `在 Plane 里创建一个 new work item，标题“修复登录白屏”`
-- `建一个 bug，标题“Facebook 回传丢失”，描述“昨天开始部分转化没同步”，优先级 high`
-- `在 workspace slug 是 abc-team 的 Plane 里建一个任务，项目是 Growth，标题“补齐埋点”`
+```bash
+python scripts/plane_so_skills.py update \
+  --item 591 \
+  --state "In Progress" \
+  --add-label frontend
+```
+
+Add a comment:
+
+```bash
+python scripts/plane_so_skills.py add-comment \
+  --item 591 \
+  --comment "Validated on staging."
+```
+
+List project members:
+
+```bash
+python scripts/plane_so_skills.py list-members
+```
+
+Create a label:
+
+```bash
+python scripts/plane_so_skills.py create-label --name bug --color "#ef4444"
+```
+
+## Reference Rules
+
+- `--item` accepts a UUID, identifier, sequence id, or exact title.
+- `--project` accepts a project name, id, or identifier.
+- `--state` accepts a state name or id.
+- `--assignee` accepts a member id, email, display name, or full name.
+- `--label` accepts a label id or name.
+- On update, `--assignee` and `--label` replace the full list.
+- On update, `--add-*` and `--remove-*` merge with the current item state.
 
 ## Repository Layout
 
 - `SKILL.md`: skill instructions for Codex
 - `agents/openai.yaml`: UI metadata
-- `scripts/plane_so_skills.py`: reusable Plane work item creation script
-
-## Notes
-
-- The script uses the official Plane `work-items` API.
-- The repository is cross-platform and relies only on standard environment variables.
-- The repository name, skill name, and recommended installed folder name are all `plane-so-skills`.
+- `scripts/plane_so_skills.py`: reusable Plane CLI for work item operations
