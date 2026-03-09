@@ -18,7 +18,7 @@ description: Create Plane work items through the official Plane API. Use when a 
 ## Workflow
 
 1. Read `PLANE_API_KEY` and `PLANE_BASE_URL`. Read `PLANE_WORKSPACE_SLUG`, `PLANE_DEFAULT_PROJECT_NAME`, and `PLANE_DEFAULT_STATE` as optional fallbacks.
-2. Prefer running [scripts/create_plane_work_item.py](./scripts/create_plane_work_item.py) instead of rewriting the Plane API call.
+2. Prefer running [scripts/plane_so_skills.py](./scripts/plane_so_skills.py) instead of rewriting the Plane API call.
 3. If the user does not specify a workspace, use `PLANE_WORKSPACE_SLUG`.
 4. If the user does not specify a project, use `PLANE_DEFAULT_PROJECT_NAME` or the only project in the workspace.
 5. If the user does not specify a state, use `PLANE_DEFAULT_STATE` or the project's default state.

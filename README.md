@@ -70,7 +70,7 @@ $env:PLANE_DEFAULT_STATE="Backlog"
 
 - `SKILL.md`: skill instructions for Codex
 - `agents/openai.yaml`: UI metadata
-- `scripts/create_plane_work_item.py`: reusable Plane work item creation script
+- `scripts/plane_so_skills.py`: reusable Plane work item creation script
 
 ## Notes
 
