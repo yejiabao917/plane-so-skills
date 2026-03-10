@@ -76,6 +76,13 @@ description: Operate Plane projects through the official Plane API. Use when a u
 - Treat `--add-assignee`, `--remove-assignee`, `--add-label`, and `--remove-label` as merge operations on update.
 - Keep the interaction short. If the target is already resolvable, execute the change instead of asking for confirmation.
 
+## Display Format
+
+- When the user asks to view a Plane task's content, present the body as original plain text, not HTML.
+- Do not rewrite, summarize, or normalize the task content unless the user explicitly asks for that.
+- If the task body contains embedded images, preserve their original positions with placeholders like `[图片1]`, `[图片2]`, and `[图片3]`.
+- After presenting the task body, open the corresponding downloaded image folder for the user when images were extracted locally.
+
 ## Environment Contract
 
 - Required: `PLANE_API_KEY`

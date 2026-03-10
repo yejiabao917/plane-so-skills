@@ -110,6 +110,13 @@ python scripts/plane_so_skills.py create-label --name bug --color "#ef4444"
 - On update, `--assignee` and `--label` replace the full list.
 - On update, `--add-*` and `--remove-*` merge with the current item state.
 
+## Task Display Rules
+
+- Show Plane task content as original plain text instead of raw HTML when the user asks to read a task.
+- Preserve image positions with placeholders like `[图片1]`, `[图片2]`, and `[图片3]`.
+- Do not rewrite or summarize the original task content unless the user explicitly asks.
+- After extracting task images locally, open the corresponding image folder for the user.
+
 ## Repository Layout
 
 - `SKILL.md`: skill instructions for Codex
